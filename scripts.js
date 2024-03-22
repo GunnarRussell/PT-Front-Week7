@@ -1,7 +1,6 @@
 // 1. Create an array called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93
 
 let ages = [3, 9, 23, 64, 2, 8, 28, 93];
-console.log(ages);
 
 //      a. Programmatically subtract the value of the first element in the array from the value in the last element of the array. 
 
@@ -9,7 +8,7 @@ console.log(ages[ages.length - 1] - ages[0]);
 
 //      b. Add a new age to your array and repeat the step above to ensure it is dynamic. (works for arrays of different lengths).
 
-ages.splice(ages.length, 0, 10);
+ages.push(10);
 console.log(ages[ages.length - 1] - ages[0]);
 
 //      c. Use a loop to iterate through the array and calculate the average age.
@@ -90,12 +89,10 @@ console.log(fullName("Gunnar", "Russell"));
 function array100(array)
 {
     let sum = 0;
-
     for (i = 0; i < array.length; i++)
     {
         sum += array[i];
     }
-
     return (sum > 100);
 }
 let myArray = [50, 50, 1]; // sum is 101
@@ -110,7 +107,7 @@ function arrayAverage(array)
     {
         sum += array[i];
     }
-    return sum / array.length;
+    return (sum / array.length);
 }
 console.log(arrayAverage(myArray));
 
@@ -137,7 +134,7 @@ function compareArrayAverage(array1, array2)
 
 myArray1 = [1, 2, 3, 4, 5]; // avg is 3
 myArray2 = [0, 1, 2, 3, 4]; // avg is 2
-console.log(compareArrayAverage(myArray1, myArray2));
+console.log(compareArrayAverage(myArray1, myArray2)); // returns true
 
 // 12. Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
 
@@ -146,9 +143,27 @@ function willBuyDrink(isHotOutside, moneyInPocket)
     return (isHotOutside == true && moneyInPocket > 10.50)
 }
 console.log(willBuyDrink(true, 11)); // true
-console.log(willBuyDrink(true, 1)); // false
-console.log(willBuyDrink(false, 12)); // false
-
 
 // 13. Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
 
+//This function tells me if it's time to clock out of work. (uses military time)
+function clockOutOfWork(workToday, hours, clockInTime, currentTime)
+{
+    hours *= 100;
+    if (workToday == true)
+    {
+        if (currentTime >= (clockInTime + hours))
+        {
+            return "It's time to clock out! :)";
+        }
+        else
+        {
+            return `You still have ${((clockInTime + hours) - currentTime) / 100} hours left...`;
+        }
+    }
+    else
+    {
+        return "It's your day off!";
+    }
+}
+// console.log(clockOutOfWork(true, 10, 1200, 2200));
