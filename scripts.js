@@ -70,21 +70,84 @@ for (i = 0; i < nameLengths.length; i++)
 console.log(sum);
 
 // 7. Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times. (i.e. if I pass in 'Hello' and 3, I would expect the function to return 'HelloHelloHello').
-
+function wordMultiplier(word, n)
+{
+    let myString = "";
+    for (i = 0; i < n; i++)
+    {
+        myString += word;
+    }
+    console.log(myString);
+}
+wordMultiplier("Hello", 3);
 
 // 8. Write a function that takes two parameters, firstName and lastName, and returns a full name. The full name should be the first and the last name separated by a space.
+let fullName = (firstName, lastName) => `${firstName} ${lastName}`;
+console.log(fullName("Gunnar", "Russell"));
 
+// 9. Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
 
-// 9. Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100. 
+function array100(array)
+{
+    let sum = 0;
 
+    for (i = 0; i < array.length; i++)
+    {
+        sum += array[i];
+    }
+
+    return (sum > 100);
+}
+let myArray = [50, 50, 1]; // sum is 101
+console.log(array100(myArray));
 
 // 10. Write a function that takes an array of numbers and returns the average of all the elements in the array.
 
+function arrayAverage(array)
+{
+    let sum = 0;
+    for (i = 0; i < array.length; i++)
+    {
+        sum += array[i];
+    }
+    return sum / array.length;
+}
+console.log(arrayAverage(myArray));
 
 // 11. Write a function that takes two arrays of numbers and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.
 
+function compareArrayAverage(array1, array2)
+{
+    let sum = 0;
+    for (i = 0; i < array1.length; i++)
+    {
+        sum += array1[i];
+    }
+    let array1avg = sum / array1.length;
+
+    sum = 0;
+    for (i = 0; i < array2.length; i++)
+    {
+        sum += array2[i];
+    }
+    let array2avg = sum / array2.length;
+
+    return (array1avg > array2avg);
+}
+
+myArray1 = [1, 2, 3, 4, 5]; // avg is 3
+myArray2 = [0, 1, 2, 3, 4]; // avg is 2
+console.log(compareArrayAverage(myArray1, myArray2));
 
 // 12. Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
+
+function willBuyDrink(isHotOutside, moneyInPocket)
+{
+    return (isHotOutside == true && moneyInPocket > 10.50)
+}
+console.log(willBuyDrink(true, 11)); // true
+console.log(willBuyDrink(true, 1)); // false
+console.log(willBuyDrink(false, 12)); // false
 
 
 // 13. Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
